@@ -48,7 +48,7 @@ if(this.readyState==4 && this.status==200){
      document.getElementById("tbody").innerHTML+=` <tr>
      <td style="width:200px;">${response[i].id}</td>
      <td>${response[i].title}</td>
-     <td style="width:30px;";><input type="checkbox" class="chk"></td>
+     <td style="width:30px;";><input id="myCheck" type="checkbox" class="chk" onclick="myFunction()"></td>
      </tr>`
       }
 
@@ -95,4 +95,22 @@ function logout(){
      </div>
      <script src="script.js"></script>`
 }
+let count=0;
+function myFunction(){
+    var checkboxes=Array.from(document.getElementsByClassName("chk"));
+    for (let i=0;i<checkboxes.length;i++){
+        if(checkboxes[i].checked===true){
+            count++;
+        }
+    }
+    console.log(count);
+    if(count==5){
+        alert("Congrats. 5 Tasks have been Successfully Completed");
+    }
+    count=0;
+   }
 
+   let myPromise = new Promise(function(reject,resolve){
+
+   });
+      
