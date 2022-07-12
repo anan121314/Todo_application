@@ -103,14 +103,21 @@ function myFunction(){
             count++;
         }
     }
-    console.log(count);
-    if(count==5){
-        alert("Congrats. 5 Tasks have been Successfully Completed");
-    }
+    
+    var p =new Promise(function(resolve,reject){
+            
+      if(count>1 && count%5==0){
+        resolve(`Congrats, ${count} task have been completed`)
+      }
+
+    });
+
+     p
+     .then(function(e){
+        alert(e);
+     })
+
+
     count=0;
    }
-
-   let myPromise = new Promise(function(reject,resolve){
-
-   });
-      
+    
